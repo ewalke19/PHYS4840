@@ -1,0 +1,12 @@
+# what part is f(x,t)
+# how do we choose step size h?
+
+def euler_method(f, x0, t0, t_end, dt):
+    t_values = np.arange(t0, t_end + dt, dt)
+    x_values = np.zeros(len(t_values))
+    x_values[0] = ...
+
+    for i in range(1, len(t_values)):
+        x_values[i] = x_values[i - 1] + dt * f(..., ...)
+
+    return t_values, x_values
