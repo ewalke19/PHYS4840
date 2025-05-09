@@ -1,4 +1,9 @@
-
+#!/usr/bin/env python3.8
+#
+# Author: Erin Walker
+#
+#########################
+# 
 import numpy as np 
 
 def price(a,b,c,d,e,f,g, max_money):
