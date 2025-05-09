@@ -105,7 +105,7 @@ def time(a,b,c,d,e, max_time):
                     for museum_count in range(2):
                         for garden_count in range(2):
 
-                            # Calculate the Total Cost for This Combination
+                            # Calculate the Total Time for This Combination
                             total_time = (
                                 park_count * a +
                                 castle_count * b +
@@ -114,7 +114,7 @@ def time(a,b,c,d,e, max_time):
                                 garden_count * e
                             )
 
-                            # Check if the total cost is within the budget
+                            # Check if the total time is within the limit
                             if total_time <= max_time:
                                 spare_time = max_time - total_time
                                 combinations.append(
