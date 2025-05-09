@@ -14,12 +14,13 @@ This project is made to help someone on a budget going on vacation. With a budge
 
 ## Installation 
 
-For this code to work, you need to download the vacation_project_lib.py and import it into the Final_Project.py file. You also need to import numpy. To make sure the code works properly, the cost loop needs to run first before putting the timing loop after it. From the cost loop, use the answer given to know what activities will be needed for the time loop. Once everything is set, they can run together. 
+For this code to work, you need to download the vacation_project_lib.py and import it into the Final_Project.py file. You also need to import numpy. To make sure the code works properly, you need to first run the best price combinations before doing anything to do with time. Once the price loop has run, you can then add the time code underneath it with the outcome of best combo. 
 
 ### Vacation Library 
 
 In the vacation_project_lib.py, a price and time function are given. These need to be changed to your own activities, prices, and times. If you are adding activities, or sometime just changing the ones given, an error may appear that says you forgot a comma. You did not. To fix this you will need to rewrite the variable it is having trouble with. In the library file this will happen at total cost.\
-The varaibles in the price function are the prices of each activity and the max money you are willing to spend. Similarly, the time function variables are the times, in hours, of each activity and the max time you can spend doing activities. The for loop makes sure each activity can only be done once or not at all. If you want to see if you can do an activity more than once, you will need to change the range from 2 to 3.  
+The varaibles in the price function are the prices of each activity and the max money you are willing to spend. Similarly, the time function variables are the times, in hours, of each activity and the max time you can spend doing activities. The for loop makes sure each activity can only be done once or not at all. If you want to see if you can do an activity more than once, you will need to change the range from 2 to one more than the number of times your want it to repeat.\
+
 
 ### Final Project Code 
 
