@@ -1,4 +1,9 @@
-
+#!/usr/bin/env python3.8
+#
+# Author: Erin Walker
+#
+#########################
+# 
 # Possible Combos for Each Activity Without Repeating One. Modify as needed for extra activities.  
 
 
