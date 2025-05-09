@@ -9,6 +9,7 @@
 
 import vacation_project_lib as vpl 
 
+# List total money set aside for activities 
 max_money = 250
 max_money = float(max_money)
 
@@ -37,6 +38,7 @@ garden_tour_time = 2
 
 # YOU HAVE TO RUN THE COST LOOP FIRST THEN ADD THE TIME LOOP
 
+# Imput variables
 p = vpl.price(national_park_price, swimming_pool_price, castle_tour_price, cave_tour_price, museum_tour_price, city_tour_price, garden_tour_price, max_money)
 
 #Total Cost of Best Combination 
@@ -72,6 +74,7 @@ print('-------')
 
 # Check if activities can be done in time of vacation 
 
+# imput variables 
 t = vpl.time(national_park_time, castle_tour_time, cave_tour_time, museum_tour_time, garden_tour_time, max_time)
 
 best_combo_time = (
@@ -87,7 +90,7 @@ print('The best time combo with activities from best budget is ', f"Park: {t[3][
                                    f"Cave: {t[3][2]} "+
                                    f"Museum: {t[3][3]} "+
                                    f"Garden: {t[3][4]}")
-# If 1 is printed, the activity is within the best budget combo. If 0 is printed, it is not within the best budget combo.
+# If 1 is printed, the activity is within the best time combo. If 0 is printed, it is not within the best time combo.
 
 print(f"Total Time of the Best Combo: {best_combo_time}")
 print(f"Spare Time: {t[0].min()}")
@@ -96,17 +99,12 @@ print(f"Failed combinations and their times:")
 for combo, time in zip(t[4], t[5]):
     print(f"Combo: Park: {combo[0]}, Castle: {combo[1]}, Cave: {combo[2]}, Museum: {combo[3]}, Garden: {combo[4]} - Time: {time}")
 
-
-# Calculate acvitities per day 
-#activities_per_day = best_combo_time/2 # 2 is the number of days 
-#print(f'Time per day: {activities_per_day}')
-
 print('-------')
 
 # List of activities per day 
 activities_day_1 = []
 activities_day_2 = []
-time_for_day_1 = 8
+time_for_day_1 = 8  # in hours
 time_for_day_2 = 8
 
 activity_times = [national_park_time, castle_tour_time, cave_tour_time, museum_tour_time, garden_tour_time]
