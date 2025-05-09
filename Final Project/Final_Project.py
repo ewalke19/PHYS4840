@@ -8,7 +8,6 @@
 
 
 import vacation_project_lib as vpl 
-import numpy as np 
 
 max_money = 250
 max_money = float(max_money)
