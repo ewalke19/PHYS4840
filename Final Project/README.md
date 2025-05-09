@@ -27,7 +27,7 @@ The varaibles in the price function are the prices of each activity and the max 
 
 ### Price Loop
 
-'''python 
+```python 
 
 import numpy as np 
 
@@ -77,7 +77,7 @@ def price(a,b,c,d,e,f,g, max_money):
     best_combo = combinations[least_spare_change_index]
                                 
     return spare_change_values, combinations, least_spare_change_index, best_combo, failed_combinations, failed_costs
-'''
+```
 
 ### Vacation Code 
 
