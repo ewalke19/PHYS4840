@@ -18,17 +18,17 @@ This repository optimizes a resource with given restraints. In this case, the re
 
 ## Description 
 
-This project is made to help someone on a budget going on vacation. With a budget set aside to do activities, one can max their experience by doing as many activities as possible. After setting a budget, and seeing what activities would be best, those activities are then put into a similar loop but for time restraints instead of money. This part tells you what activities are within your vacation time set aside for activities. This code is not to help you save money put to maximize its use. 
+This project is made to help someone on a budget going on vacation. With a budget set aside to do activities, one can maximize their experience by doing as many activities as possible. After setting a budget, and seeing what activities would be best, those activities are then put into a similar loop but for time restraints instead of money. This part tells you what activities are within your vacation time set aside for activities. This code is not to help you save money put to maximize its use. 
 
 ## Installation 
 
-For this code to work, you need to download the vacation_project_lib.py and import it into the Final_Project.py file. You also need to import numpy. To make sure the code works properly, you need to first run the best price combinations before doing anything to do with time. Once the price loop has run, you can then add the time code underneath it with the outcome of best combo. 
+For this code to work, you need to download the vacation_project_lib.py and import it into the Final_Project.py file. You also need to import numpy into the library. To make sure the code works properly, you need to first run the best price combinations before doing anything to do with time. Once the price loop has run, you can then add the time code underneath it with the outcome of best combo. 
 
 ## Useage
 
 ### Vacation Library 
 
-In the vacation_project_lib.py, a price and time function are given. These need to be changed to your own activities, prices, and times. If you are adding activities, or sometime just changing the ones given, an error may appear that says you forgot a comma. You did not. To fix this you will need to rewrite the variable it is having trouble with. In the library file this will happen at total cost. The varaibles in the price function are the prices of each activity and the max money you are willing to spend. Similarly, the time function variables are the times, in hours, of each activity and the max time you can spend doing activities. The for loop makes sure each activity can only be done once or not at all. If you want to see if you can do an activity more than once, you will need to change the range from 2 to one more than the number of times your want it to repeat.
+In the vacation_project_lib.py, a price and time function are given. These need to be changed to your own activities, prices, and times. If you are adding activities, or changing the ones given, an error may appear that says you forgot a comma. You did not. To fix this you will need to rewrite the variable it is having trouble with. In the library file this will happen at total_cost. The varaibles in the price function are the prices of each activity and the max money you are willing to spend. Similarly, the time function, the variables are the times, in hours, of each activity and the max time you can spend doing activities. The for loop makes sure each activity can only be done once or not at all. If you want to see if you can do an activity more than once, you will need to change the range from 2 to one more than the number of times your want it to repeat.
 
 #### Price Loop
 
@@ -132,14 +132,11 @@ def time(a,b,c,d,e, max_time):
     best_time_combo = combinations[least_spare_time_index]
 
     return spare_time_values, combinations, least_spare_time_index, best_time_combo, failed_combinations, failed_times
-
-# def something that will call on the time answer then input it into 
-# the price answer then the time answer again ??
 ```
 
 ### Vacation Code 
 
-Once your library is set up, it needs to be imported to the .py file. Then, make a list of the prices and times of each activity. State what your max money and time is, then make it a float. If desirable, the time can be changed from hours to minutes. Next, call on the library you made to find what activities fit in your budget best and filling in the variables. To find the best combo of activities, the activity count in best combo needs to be multiplied by the price of the activity. Do this for each activity and add them together. 
+Once your library is set up, it needs to be imported to the Final_Project.py file. Start by making a list of the prices and times of each activity. State what your max money and time is, then make it a float. If desirable, the time can be changed from hours to minutes. Next, call on the library you made to find what activities fit in your budget best and filling in the variables. To find the best combo of activities, the activity count in best combo needs to be multiplied by the price of the activity. Do this for each activity and add them together. 
 
 #### Running the Price Loop in the Main Code
 
@@ -150,6 +147,7 @@ This first set of code will tell you what activities will max your budget. If th
 
 import vacation_project_lib as vpl 
 
+# List total money set aside for activities
 max_money = 250
 max_money = float(max_money)
 
@@ -176,8 +174,9 @@ museum_tour_time = 3
 city_tour_time = 2
 garden_tour_time = 2
 
-# YOU HAVE TO RUN THE COST LOOP FIRST THEN ADD THE TIME LOOP
+# YOU HAVE TO RUN THE COST CODE FIRST THEN ADD THE TIME CODE
 
+# Imput variables
 p = vpl.price(national_park_price, swimming_pool_price, castle_tour_price, cave_tour_price, museum_tour_price, city_tour_price, garden_tour_price, max_money)
 
 #Total Cost of Best Combination 
@@ -212,13 +211,14 @@ print('-------')
 
 #### Adding the Time Loop to the Main Code
 
-Using the activities printed from best combo, it is now time to add the time loop. This will tell you what activities you have time for on your vacation. It will then tell you how much you are spending each day of vacation and your new spare change total if an activity was not within the time restraints. As shown in this example, the castle tour was exluded and the money waas put back in the budget. 
+Using the activities printed from best combo, it is now time to add the time loop. This will tell you what activities you have time for on your vacation. It will then tell you which activites can be done on each day given and how much you are spending each day of vacation and your new spare change total if an activity was not within the time restraints. As shown in this example, the castle tour was excluded and the money was put back in the budget. 
 
 ```python
 # AFTER DETERMINING THE BEST COMBO FOR COST ADD THE TIME LOOP WITH ONLY THE ACTIVITIES IT SAID WAS IN BUDGET
 
 # Check if activities can be done in time of vacation 
 
+# Imput variables
 t = vpl.time(national_park_time, castle_tour_time, cave_tour_time, museum_tour_time, garden_tour_time, max_time)
 
 best_combo_time = (
@@ -234,7 +234,7 @@ print('The best time combo with activities from best budget is ', f"Park: {t[3][
                                    f"Cave: {t[3][2]} "+
                                    f"Museum: {t[3][3]} "+
                                    f"Garden: {t[3][4]}")
-# If 1 is printed, the activity is within the best budget combo. If 0 is printed, it is not within the best budget combo.
+# If 1 is printed, the activity is within the best time combo. If 0 is printed, it is not within the best time combo.
 
 print(f"Total Time of the Best Combo: {best_combo_time}")
 print(f"Spare Time: {t[0].min()}")
@@ -243,17 +243,12 @@ print(f"Failed combinations and their times:")
 for combo, time in zip(t[4], t[5]):
     print(f"Combo: Park: {combo[0]}, Castle: {combo[1]}, Cave: {combo[2]}, Museum: {combo[3]}, Garden: {combo[4]} - Time: {time}")
 
-
-# Calculate acvitities per day 
-#activities_per_day = best_combo_time/2 # 2 is the number of days 
-#print(f'Time per day: {activities_per_day}')
-
 print('-------')
 
 # List of activities per day 
 activities_day_1 = []
 activities_day_2 = []
-time_for_day_1 = 8
+time_for_day_1 = 8   # in hours 
 time_for_day_2 = 8
 
 activity_times = [national_park_time, castle_tour_time, cave_tour_time, museum_tour_time, garden_tour_time]
@@ -288,4 +283,4 @@ If you see a way to improve the code please let me know. Detail what you see can
 
 ### Acknowledgments 
 
-I would like to thank my professor Dr. Joyce for teaching me all I learned for coding. I never thought I would be writing a program one day, even if it is for something small. 
+I would like to thank my professor Dr. Joyce for teaching me all I learned for coding. I never thought I would be writing a program one day, even if it is a small one. 
