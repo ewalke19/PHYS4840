@@ -101,6 +101,3 @@ def time(a,b,c,d,e, max_time):
 
     return spare_time_values, combinations, least_spare_time_index, best_time_combo, failed_combinations, failed_times
 
-# def something that will call on the time answer then input it into 
-# the price answer then the time answer again ??
-
