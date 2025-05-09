@@ -23,8 +23,60 @@ For this code to work, you need to download the vacation_project_lib.py and impo
 ### Vacation Library 
 
 In the vacation_project_lib.py, a price and time function are given. These need to be changed to your own activities, prices, and times. If you are adding activities, or sometime just changing the ones given, an error may appear that says you forgot a comma. You did not. To fix this you will need to rewrite the variable it is having trouble with. In the library file this will happen at total cost.\
-The varaibles in the price function are the prices of each activity and the max money you are willing to spend. Similarly, the time function variables are the times, in hours, of each activity and the max time you can spend doing activities. The for loop makes sure each activity can only be done once or not at all. If you want to see if you can do an activity more than once, you will need to change the range from 2 to one more than the number of times your want it to repeat.\
+The varaibles in the price function are the prices of each activity and the max money you are willing to spend. Similarly, the time function variables are the times, in hours, of each activity and the max time you can spend doing activities. The for loop makes sure each activity can only be done once or not at all. If you want to see if you can do an activity more than once, you will need to change the range from 2 to one more than the number of times your want it to repeat.
 
+### Price Loop
+
+'''python 
+import numpy as np 
+
+def price(a,b,c,d,e,f,g, max_money):
+    # List to store all Valid Combinations 
+    combinations = []
+    spare_change_values = []
+
+    # List to Store Failed Combinations 
+    failed_combinations = []
+    failed_costs = []
+    for park_count in range(2): # will only list the activity zero or one time.
+        for pool_count in range(2):
+            for castle_count in range(2):
+                for cave_count in range(2):
+                    for museum_count in range(2):
+                        for city_count in range(2):
+                            for garden_count in range(2):
+
+                                # Calculate the Total Cost for This Combination
+                                total_cost = (
+                                    park_count * a +
+                                    pool_count * b +
+                                    castle_count * c + 
+                                    cave_count * d + 
+                                    museum_count * e + 
+                                    city_count * f +
+                                    garden_count * g
+                                )
+
+                                # Check if the total cost is within the budget
+                                if total_cost <= max_money:
+                                    spare_change = max_money - total_cost
+                                    combinations.append(
+                                        (park_count, pool_count, castle_count, cave_count, museum_count, city_count, garden_count)
+                                    )
+                                    spare_change_values.append(spare_change)
+                                else:
+                                    failed_combinations.append(
+                                    (park_count, pool_count, castle_count, cave_count, museum_count, city_count, garden_count)
+                                    )
+                                    failed_costs.append(total_cost)
+
+    spare_change_values = np.array(spare_change_values)
+    combinations = np.array(combinations)
+    least_spare_change_index = spare_change_values.argmin() # Where the minimum occurs
+    best_combo = combinations[least_spare_change_index]
+                                
+    return spare_change_values, combinations, least_spare_change_index, best_combo, failed_combinations, failed_costs
+'''
 
 ### Vacation Code 
 
