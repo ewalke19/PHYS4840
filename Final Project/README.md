@@ -24,3 +24,7 @@ The varaibles in the price function are the prices of each activity and the max 
 ### Final Project Code 
 
 Once your library is set up, it needs to be imported to the .py file. Then, make a list of the prices and times of each activity. State what your max money and time is, then make it a float. If desirable, the time can be changed from hours to minutes. Next, call on the library you made to find what activities fit in your budget best and filling in the variables. To find the best combo of activities, the activity count in best combo needs to be multiplied by the price of the activity. Do this for each activity and add them together. 
+
+## Useage 
+
+
