@@ -284,6 +284,8 @@ print(f'Total Spare Change for Trip: {total_spare_change}')
 ```
 ### Contributions 
 
+If you see a way to improve the code please let me know. Detail what you see can be changed and how it compares to the original code. 
 
 ### Acknowledgments 
 
+I would like to thank my professor Dr. Joyce for teaching me all I learned for coding. I never thought I would be writing a program one day, even if it is for something small. 
